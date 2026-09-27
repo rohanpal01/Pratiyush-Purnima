@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#5a1626">
+<title>Pratiyush & Purnima — Wedding Invitation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap');
+:root{--wine:#64182d;--rose:#a83f59;--gold:#c69a45;--cream:#fff7ef;--ink:#3d2830}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Cormorant Garamond',serif;overflow-x:hidden}
+body.lock{overflow:hidden}
+section{position:relative;padding:90px 20px}
+.container{width:min(1100px,94vw);margin:auto}
+.eyebrow{font:600 11px Montserrat;letter-spacing:4px;text-transform:uppercase;color:var(--rose)}
+h1,h2,h3,p{margin-top:0} h2{font-size:clamp(34px,6vw,60px);font-weight:500;color:var(--wine);margin:10px 0}
+.script{font-family:'Great Vibes',cursive;color:var(--rose)}
+.btn{border:0;border-radius:999px;padding:13px 24px;background:linear-gradient(135deg,#b77a25,#e0b65d);color:white;font:600 12px Montserrat;letter-spacing:1px;cursor:pointer;box-shadow:0 10px 25px #8b4b2830}
+.divider{width:100px;height:1px;background:var(--gold);margin:20px auto;position:relative}
+.divider:after{content:'✦';position:absolute;left:50%;top:-12px;transform:translateX(-50%);background:var(--cream);padding:0 10px;color:var(--gold)}
+/* envelope */
+#intro{position:fixed;inset:0;z-index:50;background:radial-gradient(circle at 50% 20%,#8d3249,#3a0d1b 72%);display:grid;place-items:center;transition:opacity .9s,visibility .9s}
+#intro.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.envelope-wrap{width:min(390px,88vw);text-align:center;perspective:1000px}
+.envelope{height:260px;position:relative;margin:0 auto 35px;transform-style:preserve-3d;filter:drop-shadow(0 30px 40px #0006)}
+.env-body{position:absolute;inset:0;background:linear-gradient(145deg,#f8e8cf,#e9c98f);border-radius:5px;overflow:hidden}
+.env-body:after{content:'';position:absolute;left:-5%;bottom:-60%;width:110%;height:100%;background:#d7b475;transform:rotate(0deg);clip-path:polygon(0 0,100% 0,50% 100%);opacity:.9}
+.flap{position:absolute;z-index:3;left:0;right:0;top:0;height:55%;background:linear-gradient(145deg,#fff0d8,#d7b06d);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform 1.1s cubic-bezier(.2,.8,.2,1);backface-visibility:hidden}
+.seal{position:absolute;z-index:5;left:50%;top:47%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:#8c1e38;color:#f7dca4;border:2px solid #e4bc6d;font-size:27px;box-shadow:0 5px 15px #0004;transition:.6s}
+.envelope.open .flap{transform:rotateX(175deg)}
+.envelope.open .seal{transform:translate(-50%,-50%) scale(.2);opacity:0}
+.invite-title{color:#fff0d0}.invite-title .small{font:600 11px Montserrat;letter-spacing:4px}.invite-title .names{font:clamp(42px,12vw,72px);line-height:.95;margin:10px 0;font-family:'Great Vibes';color:#f5d79b}.invite-title p{font-size:20px;margin-bottom:5px}
+.open-btn{background:#f2d29a;color:#5d182b;margin-top:12px}
+#intro-note{color:#efd7c0;font:10px Montserrat;letter-spacing:1px;margin-top:12px}
+/* main */
+#main{opacity:0;transition:opacity 1s}.ready #main{opacity:1}
+nav{position:fixed;z-index:20;top:0;left:0;right:0;padding:15px 20px;display:flex;justify-content:center;gap:24px;background:linear-gradient(#2f0b16b8,transparent);transform:translateY(-100%);transition:.5s}
+.ready nav{transform:none} nav a{color:#fff;text-decoration:none;font:10px Montserrat;letter-spacing:1px}
+.music{position:fixed;z-index:25;right:16px;bottom:18px;width:50px;height:50px;border-radius:50%;border:1px solid #fff8;background:#64182ddd;color:#fff;cursor:pointer;box-shadow:0 8px 25px #0004}
+.music.on{animation:pulse 1.5s infinite}@keyframes pulse{50%{box-shadow:0 0 0 10px #c69a4518}}
+.hero{min-height:100svh;display:grid;place-items:end center;padding-bottom:65px;overflow:hidden;color:white;background:#2b0a14}
+.hero:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#0003 25%,#260813dc),url('images/couple4.jpg') center/cover;filter:saturate(.9)}
+.hero-content{position:relative;text-align:center;z-index:2}.hero h1{font-family:'Great Vibes';font-size:clamp(72px,18vw,145px);font-weight:400;line-height:.7;margin:12px 0 22px;color:#f4d18c;text-shadow:0 4px 30px #0008}.hero .date{font:500 13px Montserrat;letter-spacing:5px}.hero .sub{font-size:22px}.scroll{margin-top:35px;font:9px Montserrat;letter-spacing:3px}.scroll span{display:block;width:1px;height:45px;background:#fff8;margin:8px auto 0;animation:down 1.3s infinite}@keyframes down{50%{transform:translateY(12px);opacity:.2}}
+/* decorative */
+.flower{position:absolute;font-size:70px;opacity:.12;pointer-events:none}.f1{left:-15px;top:20px}.f2{right:-15px;bottom:20px}
+.story{background:linear-gradient(135deg,#fff8f0,#f8e7e2)}.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.photo{border:10px solid white;box-shadow:0 20px 45px #5d223522;transform:rotate(-2deg)}.photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}.story-text{font-size:22px;line-height:1.5}
+.events{background:#fff}.event-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.event{padding:24px 12px;border:1px solid #e5cba7;border-radius:18px;background:linear-gradient(180deg,#fffdf9,#fff1ec);text-align:center;min-height:240px;display:flex;flex-direction:column;justify-content:center;transition:.35s}.event:hover{transform:translateY(-8px);box-shadow:0 15px 30px #7b304019}.event .icon{font-size:35px}.event h3{color:var(--wine);font-size:26px;margin:10px 0 3px}.event .when{font:600 10px Montserrat;letter-spacing:1px;color:var(--rose)}.event p{font-size:17px;margin:10px 0}
+.countdown{background:var(--wine);color:white;text-align:center}.countdown h2{color:#f6d89b}.timer{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.unit{width:100px;padding:18px 10px;border:1px solid #d6ae6755;border-radius:15px;background:#ffffff0b}.unit b{font-size:38px;color:#f6d89b;display:block}.unit span{font:9px Montserrat;letter-spacing:2px}
+.venue{background:#f9eee7}.venue-card{display:grid;grid-template-columns:1.2fr 1fr;overflow:hidden;border-radius:25px;background:white;box-shadow:0 20px 45px #4e182318}.venue-img{min-height:330px;background:linear-gradient(135deg,#d9a86d,#7d2639);display:grid;place-items:center;color:white;font-size:80px}.venue-info{padding:45px}.venue-info h3{font-size:38px;color:var(--wine);margin-bottom:5px}.venue-info p{font-size:20px;line-height:1.4}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.gallery-grid img{width:100%;height:330px;object-fit:cover;border-radius:12px;cursor:pointer;transition:.35s}.gallery-grid img:hover{transform:scale(1.02)}
+.rsvp{background:linear-gradient(135deg,#5b1228,#8e3047);color:white;text-align:center}.rsvp h2{color:#f6d89b}.form{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:min(850px,100%);margin:30px auto 0}.form input,.form select,.form textarea{width:100%;padding:15px;border:0;border-radius:8px;background:#fff;color:#40222b;font:14px Montserrat}.form textarea{grid-column:1/-1;min-height:100px}.form .btn{grid-column:1/-1;width:200px;justify-self:center}
+footer{text-align:center;padding:70px 20px;background:#fff6ee}.footer-names{font:60px 'Great Vibes';color:var(--rose)}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s,transform .8s}.reveal.show{opacity:1;transform:none}
+@media(max-width:800px){nav{gap:12px;overflow:auto;justify-content:flex-start}.story-grid,.venue-card{grid-template-columns:1fr}.event-grid{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr 1fr}.gallery-grid img{height:250px}.form{grid-template-columns:1fr}.form textarea{grid-column:auto}.form .btn{grid-column:auto}.story-text{font-size:20px}.venue-info{padding:30px}}
+@media(max-width:500px){section{padding:70px 15px}.event-grid{grid-template-columns:1fr}.gallery-grid img{height:310px}.envelope{height:220px}}
+</style>
+</head>
+<body class="lock">
+<div id="intro">
+  <div class="envelope-wrap">
+    <div class="envelope" id="envelope">
+      <div class="env-body"></div><div class="flap"></div><div class="seal">♥</div>
+    </div>
+    <div class="invite-title">
+      <div class="small">A WEDDING INVITATION</div>
+      <div class="names">Pratiyush &amp; Purnima</div>
+      <p>We invite you to celebrate our love</p>
+      <button class="btn open-btn" id="openBtn">OPEN INVITATION</button>
+      <div id="intro-note">Tap to open • Music starts after opening</div>
+    </div>
+  </div>
+</div>
+
+<div id="main">
+<nav>
+<a href="#home">HOME</a><a href="#story">OUR STORY</a><a href="#events">EVENTS</a><a href="#venue">VENUE</a><a href="#gallery">GALLERY</a><a href="#rsvp">RSVP</a>
+</nav>
+<button class="music" id="musicBtn" aria-label="Music">♫</button>
+
+<section class="hero" id="home">
+<div class="hero-content reveal">
+<div class="eyebrow" style="color:#f6d89b">TOGETHER FOREVER</div>
+<h1>Pratiyush<br>&amp; Purnima</h1>
+<div class="sub">ARE GETTING MARRIED</div>
+<div class="date">25 NOVEMBER 2026</div>
+<div class="scroll">SCROLL TO EXPLORE<span></span></div>
+</div>
+</section>
+
+<section class="countdown">
+<div class="container reveal"><div class="eyebrow" style="color:#e7bf72">COUNTING DOWN TO OUR BIG DAY</div><h2>Our forever begins soon</h2>
+<div class="timer">
+<div class="unit"><b id="days">--</b><span>DAYS</span></div><div class="unit"><b id="hours">--</b><span>HOURS</span></div><div class="unit"><b id="mins">--</b><span>MINUTES</span></div><div class="unit"><b id="secs">--</b><span>SECONDS</span></div>
+</div></div>
+</section>
+
+<section class="story" id="story"><span class="flower f1">❀</span><span class="flower f2">❁</span>
+<div class="container story-grid">
+<div class="photo reveal"><img src="images/couple2.jpg" alt="Pratiyush and Purnima"></div>
+<div class="story-text reveal"><div class="eyebrow">OUR STORY</div><h2>Two hearts,<br><span class="script">one beautiful journey</span></h2><div class="divider" style="margin-left:0"></div><p>Two different journeys, one beautiful destination. Through all the little moments, laughter and endless support, we found a friend, a partner and a home in each other.</p><p>Now we are excited to begin our next chapter together, surrounded by the people who make our lives special.</p></div>
+</div></section>
+
+<section class="events" id="events"><div class="container">
+<div class="reveal" style="text-align:center"><div class="eyebrow">JOIN US</div><h2>Wedding Celebrations</h2><div class="divider"></div><p style="font-size:20px">Five beautiful occasions. One unforgettable celebration.</p></div>
+<div class="event-grid" style="margin-top:35px">
+<div class="event reveal"><div class="icon">🌼</div><h3>Haldi</h3><div class="when">22 NOVEMBER 2026</div><p>Let the yellow festivities begin!</p><b>10:00 AM</b></div>
+<div class="event reveal"><div class="icon">🌿</div><h3>Mehndi</h3><div class="when">23 NOVEMBER 2026</div><p>Colors, music and beautiful bonds.</p><b>4:00 PM</b></div>
+<div class="event reveal"><div class="icon">💃</div><h3>Sangeet</h3><div class="when">24 NOVEMBER 2026</div><p>An evening of music, dance and joy.</p><b>7:00 PM</b></div>
+<div class="event reveal"><div class="icon">💍</div><h3>Wedding</h3><div class="when">25 NOVEMBER 2026</div><p>Two souls, one forever.</p><b>7:00 PM</b></div>
+<div class="event reveal"><div class="icon">🥂</div><h3>Reception</h3><div class="when">26 NOVEMBER 2026</div><p>Let's celebrate the new beginning.</p><b>7:00 PM</b></div>
+</div></div></section>
+
+<section class="venue" id="venue"><div class="container reveal">
+<div class="eyebrow" style="text-align:center">THE CELEBRATION</div><h2 style="text-align:center">Wedding Venue</h2><div class="divider"></div>
+<div class="venue-card">
+<div class="venue-img">❦<br><small style="font:13px Montserrat">PS LAWN</small></div>
+<div class="venue-info"><div class="eyebrow">25 NOVEMBER 2026</div><h3>PS Lawn</h3><p>Join us at PS Lawn for the wedding celebration of Pratiyush &amp; Purnima.</p><button class="btn" onclick="alert('Google Maps link will be added when the exact venue location is provided.')">VIEW ON GOOGLE MAPS</button></div>
+</div></div></section>
+
+<section id="gallery"><div class="container">
+<div class="reveal" style="text-align:center"><div class="eyebrow">MEMORIES</div><h2>Our Gallery</h2><div class="divider"></div></div>
+<div class="gallery-grid" style="margin-top:35px">
+<img class="reveal" src="images/couple1.jpg" alt="Couple photo"><img class="reveal" src="images/couple2.jpg" alt="Couple photo"><img class="reveal" src="images/couple3.jpg" alt="Couple photo"><img class="reveal" src="images/couple4.jpg" alt="Couple photo">
+</div></div></section>
+
+<section class="rsvp" id="rsvp"><div class="container reveal">
+<div class="eyebrow" style="color:#efc77d">YOUR PRESENCE MATTERS</div><h2>RSVP</h2><p style="font-size:20px">Please let us know if you will be joining our celebration.</p>
+<form class="form" onsubmit="event.preventDefault();alert('Thank you! RSVP demo submitted. We will connect this to WhatsApp/email/database in the final version.')">
+<input required placeholder="Your Name"><select required><option value="">Will you attend?</option><option>Yes, with pleasure</option><option>Sorry, can't make it</option></select><input type="number" min="1" placeholder="Number of Guests"><textarea placeholder="Message (optional)"></textarea><button class="btn" type="submit">SEND RESPONSE ✈</button>
+</form></div></section>
+
+<footer><div class="eyebrow">WITH LOVE</div><div class="footer-names">Pratiyush &amp; Purnima</div><p style="font-size:22px">“Grateful for our journey, excited for our forever.”</p><div style="color:#c69a45">♡</div></footer>
+</div>
+
+<script>
+const intro=document.getElementById('intro'), env=document.getElementById('envelope'), main=document.body;
+let audioCtx, master, musicOn=false, timerId;
+
+// Optional real music: place music.mp3 beside index.html.
+// If it isn't present, a soft synthesized ambient loop is used after the user taps Open.
+const audio = new Audio('music.mp3'); audio.loop=true; audio.volume=.28;
+audio.addEventListener('error',()=>{});
+
+function startAmbient(){
+  try{
+    audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    master=audioCtx.createGain(); master.gain.value=.045; master.connect(audioCtx.destination);
+    const notes=[261.63,329.63,392.00,329.63,293.66,349.23,440,349.23];
+    let t=audioCtx.currentTime;
+    notes.forEach((f,i)=>{
+      const o=audioCtx.createOscillator(), g=audioCtx.createGain();
+      o.type='sine'; o.frequency.value=f;
+      g.gain.setValueAtTime(0,t+i*1.2); g.gain.exponentialRampToValueAtTime(.0001,t+i*1.2+1.1);
+      o.connect(g).connect(master); o.start(t+i*1.2); o.stop(t+i*1.2+1.15);
+    });
+    musicOn=true; document.getElementById('musicBtn').classList.add('on');
+    timerId=setInterval(()=>{ if(musicOn) startAmbient(); },9600);
+  }catch(e){}
+}
+async function startMusic(){
+  try{ await audio.play(); musicOn=true; document.getElementById('musicBtn').classList.add('on'); }
+  catch(e){ startAmbient(); }
+}
+document.getElementById('openBtn').onclick=()=>{
+  env.classList.add('open');
+  setTimeout(()=>{intro.classList.add('hidden');document.body.classList.remove('lock');document.documentElement.classList.add('ready');startMusic()},850);
+};
+document.getElementById('musicBtn').onclick=()=>{
+  if(!musicOn){startMusic();return}
+  musicOn=false; document.getElementById('musicBtn').classList.remove('on');
+  audio.pause(); if(master) master.gain.value=0;
+};
+const target=new Date('2026-11-25T19:00:00+05:30').getTime();
+function countdown(){
+ const d=Math.max(0,target-Date.now()), s=Math.floor(d/1000);
+ document.getElementById('days').textContent=Math.floor(s/86400);
+ document.getElementById('hours').textContent=Math.floor(s%86400/3600);
+ document.getElementById('mins').textContent=Math.floor(s%3600/60);
+ document.getElementById('secs').textContent=s%60;
+} countdown(); setInterval(countdown,1000);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+</script>
+</body>
+</html>
